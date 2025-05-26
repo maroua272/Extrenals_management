@@ -1,0 +1,67 @@
+<div class="stats-container">
+  <div class="stats-header">
+    <h2 class="stats-title">Candidate Statistics</h2>
+    <p-card class="total-card">
+      <div class="total-candidates">
+        <span class="total-label">Total Candidates:</span>
+        <span class="candidate-count">{{ totalCandidates }}</span>
+      </div>
+    </p-card>
+  </div>
+
+  <p-tabView>
+    <!-- Languages Tab -->
+    <p-tabPanel header="Languages">
+      <p-card class="chart-card">
+        <h3>Candidates by Language</h3>
+        <div *ngIf="!languageChartData" class="loading-indicator">
+          Loading language data...
+        </div>
+        <p-chart
+          *ngIf="languageChartData"
+          type="bar"
+          [data]="languageChartData"
+          [options]="chartOptions"
+          height="300px"
+          width="100%">
+        </p-chart>
+      </p-card>
+    </p-tabPanel>
+
+    <!-- Skills Tab -->
+    <p-tabPanel header="Skills">
+      <p-card class="chart-card">
+        <h3>Candidates by Skill</h3>
+        <div *ngIf="!skillsChartData" class="loading-indicator">
+          Loading skill data...
+        </div>
+        <p-chart
+          *ngIf="skillsChartData"
+          type="pie"
+          [data]="skillsChartData"
+          [options]="chartOptions"
+          height="300px"
+          width="100%">
+        </p-chart>
+      </p-card>
+    </p-tabPanel>
+
+    <!-- Experience Tab -->
+    <p-tabPanel header="Experience">
+      <p-card class="chart-card">
+        <h3>Candidates by years of experience</h3>
+        <div *ngIf="!experienceChartData" class="loading-indicator">
+          Loading experience data...
+        </div>
+        <p-chart
+          *ngIf="experienceChartData"
+          type="bar"
+          [data]="experienceChartData"
+          [options]="chartOptions"
+          height="300px"
+          width="100%">
+        </p-chart>
+      </p-card>
+    </p-tabPanel>
+  </p-tabView>
+</div>
